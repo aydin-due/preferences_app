@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:preferences_app/screens/screens.dart';
+import 'package:preferences_app/shared_preferences/preferences.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Preferences.init();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -14,6 +19,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.routeName: (context) => const HomeScreen(),
         SettingsScreen.routeName: (context) => const SettingsScreen(),
       },
+      theme: ThemeData.light(),
     );
   }
 }
