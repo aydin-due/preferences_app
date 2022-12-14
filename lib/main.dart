@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.routeName: (context) => const HomeScreen(),
         SettingsScreen.routeName: (context) => const SettingsScreen(),
       },
-      theme: ThemeData.light(),
+      theme: Preferences.isDarkMode ? ThemeData.dark() : ThemeData.light(),
     );
   }
 }
